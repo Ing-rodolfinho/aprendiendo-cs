@@ -1,0 +1,4 @@
+C:\Users\rodol\OneDrive\Documents\Repositorios\repo-cs\aprendiendo-cs\obj\Debug\net10.0\aprendiendo-cs.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\rodol\OneDrive\Documents\Repositorios\repo-cs\aprendiendo-cs\obj\Debug\net10.0\aprendiendo-cs.AssemblyInfoInputs.cache
+C:\Users\rodol\OneDrive\Documents\Repositorios\repo-cs\aprendiendo-cs\obj\Debug\net10.0\aprendiendo-cs.AssemblyInfo.cs
+C:\Users\rodol\OneDrive\Documents\Repositorios\repo-cs\aprendiendo-cs\obj\Debug\net10.0\aprendiendo-cs.csproj.CoreCompileInputs.cache
