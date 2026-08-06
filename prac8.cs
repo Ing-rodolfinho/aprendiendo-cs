@@ -4,7 +4,7 @@ namespace practica7
 {
     class Venta_dolar
     {
-        static void Main(string[] args)
+        static void venta_dolar()
         {
             int op = 0;
             bool salir = false;
