@@ -1,12 +1,12 @@
 using System;
-using clase2;
-namespace Master
+using prac9;
+namespace Practicas
 {
-    public class Master
+    public class Practica5
     {
-        public static void Main()
+        public static void Main(string[] args)
         {
-            Practica1.Factori();
+            Practica9.Pra9();
         }
     }
 }

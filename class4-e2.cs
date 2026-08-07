@@ -1,56 +1,58 @@
 using System;
+
 namespace clase2
 {
     public class Practica2
     {
         public static void Iva1()
         {
-            double iv = 1;
-            double n;
-            System.Console.WriteLine("costo de total de los productos");
-            do
-            {
-                double.TryParse(Console.ReadLine(), out n);
-                if (n > 0)
-                {
-                    System.Console.WriteLine("por favor digite el iva");
-                    do
-                    {
+            double iv = 0;
+            double n = 0;
+            bool val;
 
-                        if (double.TryParse(Console.ReadLine(), out iv) && iv >= 0)
-                        {
-                            System.Console.WriteLine("el costo total con iva es: " + Iva(n, iv));
-                        }
-                        else if (iv < 0)
-                        {
-                            System.Console.WriteLine("por favor digite un iva valido (mayor o igual a 0)");
-                        }
-                        else
-                        {
-                            System.Console.WriteLine("por favor digite un numero");
-                        }
-                    } while (iv < 0);
-                }
-                else if (n < 0)
+            try
+            {
+                do
                 {
-                    System.Console.WriteLine("por favor digite un costo valido ( mayor o igual a 0)");
-                }
-                else
+                    Console.Write("Ingrese el costo total de los productos: ");
+                    val = double.TryParse(Console.ReadLine(), out n);
+
+                    if (!val || n <= 0)
+                    {
+                        Console.WriteLine("Por favor, digite un costo válido mayor a 0.");
+                    }
+
+                } while (!val || n <= 0);
+
+
+                do
                 {
-                    System.Console.WriteLine("por favor digite un numero");
-                }
-            } while (n <= 0);
+                    Console.Write("Ingrese el IVA: ");
+                    val = double.TryParse(Console.ReadLine(), out iv);
+
+                    if (!val || iv < 0)
+                    {
+                        Console.WriteLine("Por favor, digite un IVA válido mayor o igual a 0.");
+                    }
+
+                } while (!val || iv < 0);
+
+
+                Console.WriteLine("El costo total con IVA es: " + Iva(n, iv));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrió un error: " + ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine("Proceso terminado.");
+            }
         }
+
         public static double Iva(double n, double iva)
         {
-            if (iva == 0)
-            {
-                return n * 0.15;
-            }
-            else
-            {
-                return n * iva;
-            }
+            return n + (n * iva / 100);
         }
     }
 }
