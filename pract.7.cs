@@ -3,7 +3,7 @@ namespace fisic
 {
     class Fisica
     {
-        static void Main(string[] args)
+        static void Fisi()
         {
             int op = 0;
             bool correcto = false;
