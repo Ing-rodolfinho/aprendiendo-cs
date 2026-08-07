@@ -1,7 +1,7 @@
 using System;
 namespace clase2
 {
-    public class Class2
+    public class Practica1
     {
         public static void Factori()
         {
