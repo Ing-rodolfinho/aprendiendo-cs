@@ -3,7 +3,7 @@ namespace clase2
 {
     public class Class2
     {
-        public static void Main(string[] args)
+        public static void Factori()
         {
             int n = 0;
             do
