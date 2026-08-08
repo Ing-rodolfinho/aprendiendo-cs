@@ -54,7 +54,7 @@ namespace prac9
             }
             catch (Exception)
             {
-                Console.WriteLine("Algo ocurrió.");
+                Console.WriteLine("Que pasho?.");
             }
             finally
             {
