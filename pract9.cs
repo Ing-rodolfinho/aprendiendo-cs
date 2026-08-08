@@ -54,7 +54,7 @@ namespace prac9
             }
             catch (Exception)
             {
-                Console.WriteLine("Que pasho?.");
+                Console.WriteLine("imvalido");
             }
             finally
             {
