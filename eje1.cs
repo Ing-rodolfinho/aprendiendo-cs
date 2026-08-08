@@ -1,30 +1,18 @@
 using System;
 namespace Figiuras
 {
-    public class FIg
+    public class E1
     {
         public static void Clase5plusultra()
         {
             int op = 0;
-            bool correcto = true;
-            while (correcto == true)
+            while (true)
             {
+                Menu();
                 try
                 {
-                    Menu();
-                    do
-                    {
-                        Console.Write("opción: ");
-                        if (!int.TryParse(Console.ReadLine(), out op))
-                        {
-                            Console.WriteLine("Debe ingresar un número.");
-                            op = 0;
-                        }
-                        else if (op < 1 || op > 4)
-                        {
-                            Console.WriteLine("Opción inválida.");
-                        }
-                    } while (op < 1 || op > 4);
+                    Console.Write("opción: ");
+                    op = Convert.ToInt32(Console.ReadLine());
                     switch (op)
                     {
                         case 1:
@@ -55,7 +43,7 @@ namespace Figiuras
                                 }
                             }
                             double R = Triangulo(b, a);
-                            System.Console.WriteLine("la base del triangulo es: " + R);
+                            System.Console.WriteLine("El area del triangulo es: " + R);
                             break;
                         case 2:
                             double l = 0;
@@ -72,7 +60,7 @@ namespace Figiuras
                                 }
                             }
                             double c = Cuadrado(l);
-                            System.Console.WriteLine("la base del cuadrado es: " + c);
+                            System.Console.WriteLine("El area del cuadrado es: " + c);
                             break;
                         case 3:
                             double ba = 0;
@@ -102,16 +90,19 @@ namespace Figiuras
                                 }
                             }
                             double J = Rectangulo(ba, al);
-                            System.Console.WriteLine("la base del rectangulo es: " + J);
+                            System.Console.WriteLine("El area del rectangulo es: " + J);
                             break;
                         case 4:
-                            correcto = false;
                             Console.WriteLine("saliendo...");
-                            break;
+                            return;
                         default:
                             System.Console.WriteLine("opcion invalida");
                             break;
                     }
+                }
+                catch (FormatException)
+                {
+                    System.Console.WriteLine("debes ingresar un numero");
                 }
                 catch (Exception)
                 {

@@ -2,7 +2,7 @@ using System;
 
 namespace clase2
 {
-    public class Practica2
+    public class E4
     {
         public static void Iva1()
         {
