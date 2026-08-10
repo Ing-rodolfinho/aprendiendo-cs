@@ -1,7 +1,4 @@
 using System;
-using System.Linq.Expressions;
-using System.Net;
-using System.Security.Cryptography.X509Certificates;
 namespace prueba
 {
     public class Prueba2
@@ -73,7 +70,7 @@ namespace prueba
                         {
                             System.Console.WriteLine("digite un numero valido");
                         }
-                        else if (precio[i] < 0)
+                        else if (precio[i] <= 0)
                         {
                             System.Console.WriteLine("el precio debe ser mayor a 0");
                         }
@@ -84,7 +81,7 @@ namespace prueba
                         }
                     }
                 }
-                double Descuento;
+                double Recargo = 0;
                 int op;
                 while (true)
                 {
@@ -112,49 +109,28 @@ namespace prueba
                     {
                         case 1:
                             System.Console.WriteLine("==========Factura==========");
-                            Descuento = 0.10;
-                            total = total - (total * Descuento);
-                            System.Console.WriteLine("Nombre: " + nombre);
-                            System.Console.WriteLine("Edad: " + edad);
-                            System.Console.WriteLine("Cantidad de productos: " + cantidad);
-                            System.Console.WriteLine("Precio de los productos: ");
-                            for (int i = 0; i < cantidad; i++)
-                            {
-                                System.Console.WriteLine("producto " + (i + 1) + ": " + precio[i]);
-                            }
-                            System.Console.WriteLine("descuento: 10%");
-                            System.Console.WriteLine("Total: " + total);
+                            Recargo = 0.10;
+                            total = total + (total * Recargo);
                             break;
                         case 2:
-                            Descuento = 0.05;
-                            total = total - (total * Descuento);
-                            System.Console.WriteLine("==========Factura==========");
-                            System.Console.WriteLine("Nombre: " + nombre);
-                            System.Console.WriteLine("Edad: " + edad);
-                            System.Console.WriteLine("Cantidad de productos: " + cantidad);
-                            System.Console.WriteLine("Precio de los productos: ");
-                            for (int i = 0; i < cantidad; i++)
-                            {
-                                System.Console.WriteLine("producto " + (i + 1) + ": " + precio[i]);
-                            }
-                            System.Console.WriteLine("descuento: 5%");
-                            System.Console.WriteLine("Total: " + total);
+                            Recargo = 0.05;
+                            total = total + (total * Recargo);
                             break;
                         case 3:
-                            Descuento = 0;
-                            System.Console.WriteLine("==========Factura==========");
-                            System.Console.WriteLine("Nombre: " + nombre);
-                            System.Console.WriteLine("Edad: " + edad);
-                            System.Console.WriteLine("Cantidad de productos: " + cantidad);
-                            System.Console.WriteLine("Precio de los productos: ");
-                            for (int i = 0; i < cantidad; i++)
-                            {
-                                System.Console.WriteLine("producto " + (i + 1) + ": " + precio[i]);
-                            }
-                            System.Console.WriteLine("descuento: 0%");
-                            System.Console.WriteLine("Total: " + total);
+                            Recargo = 0;
                             break;
                     }
+                    System.Console.WriteLine("==========Factura==========");
+                    System.Console.WriteLine("Nombre: " + nombre);
+                    System.Console.WriteLine("Edad: " + edad);
+                    System.Console.WriteLine("Cantidad de productos: " + cantidad);
+                    System.Console.WriteLine("Precio de los productos: ");
+                    for (int i = 0; i < cantidad; i++)
+                    {
+                        System.Console.WriteLine("producto " + (i + 1) + ": " + precio[i]);
+                    }
+                    System.Console.WriteLine("Recargo: " + (Recargo * 100) + "%");
+                    System.Console.WriteLine("Total: " + total);
                     break;
                 }
             }
