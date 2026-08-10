@@ -2,6 +2,7 @@ using System;
 using Aprendiendo;
 using clase2;
 using Figiuras;
+using Juegos;
 using prac9;
 using prueba;
 using Tienda;
@@ -11,7 +12,7 @@ namespace Practicas
     {
         public static void Main(string[] args)
         {
-            Prueba2.P2();
+            Juego.J1();
         }
     }
 }
