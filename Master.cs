@@ -4,6 +4,8 @@ using clase2;
 using Figiuras;
 using Juegos;
 using prac9;
+using Practica11;
+using Practica12;
 using prueba;
 using Tienda;
 namespace Practicas
@@ -12,7 +14,7 @@ namespace Practicas
     {
         public static void Main(string[] args)
         {
-            Juego.J1();
+            Pract12.P12();
         }
     }
 }
