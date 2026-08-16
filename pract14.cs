@@ -3,7 +3,7 @@ namespace practica14
 {
     public class Pract14
     {
-        public static void Main(string[] args)
+        public static void P14()
         {
             try
             {
