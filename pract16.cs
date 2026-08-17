@@ -3,7 +3,7 @@ namespace Practica16
 {
     public class Pract16
     {
-        public static void Main(string[] args)
+        public static void P16()
         {
             try
             {
