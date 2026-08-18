@@ -3,7 +3,7 @@ namespace practica17
 {
     public class Pract17
     {
-        public static void Main(string[] args)
+        public static void P17()
         {
             double[] calificaciones = new double[10];
             Rellenar(calificaciones);
