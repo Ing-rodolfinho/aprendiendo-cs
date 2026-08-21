@@ -8,78 +8,27 @@ namespace Practica11
             try
             {
                 double SumaPasivo = 0, SumaActivo = 0;
-                bool val;
                 bool salida = false;
+                int op;
                 while (!salida)
                 {
-                    int op;
-                    System.Console.WriteLine("=========Digite un aopcion=========");
-                    System.Console.WriteLine("1. Registar Pasivo");
-                    System.Console.WriteLine("2. Registrar Activo");
-                    System.Console.WriteLine("3. Mostrar Patrimonio");
-                    System.Console.WriteLine("4. Mostrar informacion");
-                    System.Console.WriteLine("5. Salir");
-                    while (true)
-                    {
-                        val = int.TryParse(Console.ReadLine(), out op);
-                        if (!val)
-                        {
-                            System.Console.WriteLine("tipo de dato incorrecto");
-                        }
-                        else if (op < 1 || op > 5)
-                        {
-                            System.Console.WriteLine("opcion invalida");
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
+                    System.Console.WriteLine("=========Digite un aopcion========= \n 1.Registrar Pasivo \n 2.Registrar Activo \n 3.Mostrar Patrimonio \n 4.Mostrar informacion \n 5.Salir");
+                    op = ValidarOpcion();   
                     switch (op)
                     {
                         case 1:
                             System.Console.WriteLine("Digite el valor total del pasivo");
                             double pasivo;
-                            while (true)
-                            {
-                                val = double.TryParse(Console.ReadLine(), out pasivo);
-                                if (!val)
-                                {
-                                    System.Console.WriteLine("tipo de dato incorrecto");
-                                }
-                                else if (pasivo < 1)
-                                {
-                                    System.Console.WriteLine("pasivo invalido");
-                                }
-                                else
-                                {
-                                    SumaPasivo += pasivo;
-                                    System.Console.WriteLine("pasivo registrado exitosamente");
-                                    break;
-                                }
-                            }
+                            pasivo = Validardou();
+                            SumaPasivo += pasivo;
+                            System.Console.WriteLine("pasivo registrado exitosamente");
                             break;
                         case 2:
                             System.Console.WriteLine("Digite el valor del activo");
                             double activo;
-                            while (true)
-                            {
-                                val = double.TryParse(Console.ReadLine(), out activo);
-                                if (!val)
-                                {
-                                    System.Console.WriteLine("tipo de dato incorrecto");
-                                }
-                                else if (activo < 1)
-                                {
-                                    System.Console.WriteLine("activo invalido");
-                                }
-                                else
-                                {
-                                    SumaActivo += activo;
-                                    System.Console.WriteLine("activo registrado exitosamente");
-                                    break;
-                                }
-                            }
+                            activo = Validardou();
+                            SumaActivo += activo;
+                            System.Console.WriteLine("activo registrado exitosamente");
                             break;
                         case 3:
                             MostrarPatrimonio(SumaPasivo, SumaActivo);
@@ -115,6 +64,64 @@ namespace Practica11
             System.Console.WriteLine("===========Informacion===========");
             System.Console.WriteLine("El patrimonio es: " + patrimonio);
             System.Console.WriteLine("---------------------------------");
+        }
+        public static int Validarint(string men)
+        {
+            int num;
+            while (true)
+            {
+                System.Console.WriteLine(men);
+                if (!int.TryParse(Console.ReadLine(), out num))
+                {
+                    System.Console.WriteLine("DIGITE UN NUMERO VALIDO");
+                }
+                else if (num <= 0)
+                {
+                    System.Console.WriteLine("EL NUMERO DEBE SER MAYOR A 0");
+                }
+                else
+                {
+                    return num;
+                }
+            }
+        }
+        public static double Validardou()
+        {
+            double num;
+            while(true)
+            {
+                if (!double.TryParse(Console.ReadLine(), out num))
+                {
+                    System.Console.WriteLine("DIGITE UN NUMERO VALIDO");
+                }
+                else if (num <= 0)
+                {
+                    System.Console.WriteLine("EL NUMERO DEBE SER MAYOR A 0");
+                }
+                else
+                {
+                    return num;
+                }
+            }
+        }
+        public static int ValidarOpcion()
+        {
+            int num;
+            while (true)
+            {
+                if (!int.TryParse(Console.ReadLine(), out num))
+                {
+                    System.Console.WriteLine("DIGITE UN NUMERO VALIDO");
+                }
+                else if (num < 1 || num > 5)
+                {
+                    System.Console.WriteLine("EL NUMERO DEBE SER MAYOR A 0 y menor a 5");
+                }
+                else
+                {
+                    return num;
+                }
+            }
         }
     }
 }

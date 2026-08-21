@@ -8,91 +8,40 @@ namespace Practica12
         {
             try
             {
-                bool val;
                 bool salida = false;
                 double Saldo = 0;
                 double DepositoTotal = 0;
                 double RetiroTotal = 0;
                 int Movimiento = 0;
+                int op;
                 while (!salida)
                 {
-                    int op = 0;
-                    System.Console.WriteLine("=============CONTROL CONTABLE=============");
-                    System.Console.WriteLine("1. Registra Deposito");
-                    System.Console.WriteLine("2. registrar Retiro");
-                    System.Console.WriteLine("3. Mostrar Saldo");
-                    System.Console.WriteLine("4. Mostrar movimiento");
-                    System.Console.WriteLine("5. Salir");
-                    while (true)
-                    {
-                        val = int.TryParse(Console.ReadLine(), out op);
-                        if (!val)
-                        {
-                            System.Console.WriteLine("Tipo de dato invalido");
-                        }
-                        else if (op < 1 || op > 5)
-                        {
-                            System.Console.WriteLine("opcion invalida");
-                        }
-                        else
-                        {
-                            break;
-                        }
-                    }
+                    System.Console.WriteLine("=============CONTROL CONTABLE============= \n 1.Registra Deposito \n 2.registrar Retiro \n 3.Mostrar Saldo \n 4.Mostrar movimiento \n 5.Salir");
+                    op = ValidarOp();
                     switch (op)
                     {
                         case 1:
                             double dep = 0;
                             System.Console.WriteLine("========DIGITE EL DEPOSITO========");
-                            while (true)
-                            {
-                                val = double.TryParse(Console.ReadLine(), out dep);
-                                if (!val)
-                                {
-                                    System.Console.WriteLine("tipo de dato invalido");
-                                }
-                                else if (dep <= 0)
-                                {
-                                    System.Console.WriteLine("deposito invalido");
-                                }
-                                else
-                                {
-                                    DepositoTotal += dep;
-                                    Saldo += dep;
-                                    Movimiento += 1;
-                                    System.Console.WriteLine("deposito registrado exitosamente");
-                                    break;
-                                }
-                            }
+                            dep = ValidarDou();
+                            DepositoTotal += dep;
+                            Saldo += dep;
+                            Movimiento += 1;
+                            System.Console.WriteLine("deposito registrado exitosamente");
                             break;
                         case 2:
                             double ret = 0;
                             System.Console.WriteLine("========DIGITE EL RETIRO========");
-                            while (true)
+                            ret = ValidarDou();
+                            if (ret > Saldo)
                             {
-                                val = double.TryParse(Console.ReadLine(), out ret);
-                                if (!val)
-                                {
-                                    System.Console.WriteLine("tipo de dato invalido");
-                                }
-                                else if (ret <= 0)
-                                {
-                                    System.Console.WriteLine("retiro invalido");
-                                }
-                                else if (ret > Saldo)
-                                {
-                                    System.Console.WriteLine("saldo insuficiente");
-                                    continue;
-                                }
-                                else
-                                {
-                                    RetiroTotal += ret;
-                                    Saldo -= ret;
-                                    Movimiento += 1;
-                                    System.Console.WriteLine("retiro registrado exitosamente");
-                                    break;
-                                }
+                                System.Console.WriteLine("saldo insuficiente");
+                                continue;
                             }
+                            RetiroTotal += ret;
+                            Saldo -= ret;
+                            Movimiento += 1;
+                            System.Console.WriteLine("retiro registrado exitosamente");
                             break;
                         case 3:
                             MostrarSaldo(Saldo);
@@ -128,6 +77,44 @@ namespace Practica12
             System.Console.WriteLine("el retiro total es: " + RetiroTotal);
             System.Console.WriteLine("el numero de movimientos es: " + Movimiento);
             System.Console.WriteLine("---------------------------");
+        }
+        public static int ValidarOp()
+        {
+            int op;
+            while (true)
+            {
+                if (!int.TryParse(Console.ReadLine(), out op))
+                {
+                    System.Console.WriteLine("tipo de dato invalido");
+                }
+                else if (op < 1 || op > 5)
+                {
+                    System.Console.WriteLine("opcion invalida");
+                }
+                else
+                {
+                    return op;
+                }
+            }
+        }
+        public static double ValidarDou()
+        {
+            double num;
+            while (true)
+            {
+                if (!double.TryParse(Console.ReadLine(), out num))
+                {
+                    System.Console.WriteLine("tipo de dato invalido");
+                }
+                else if (num <= 0)
+                {
+                    System.Console.WriteLine("el numero debe ser mayor a 0");
+                }
+                else
+                {
+                    return num;
+                }
+            }
         }
     }
 }
